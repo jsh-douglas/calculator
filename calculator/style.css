@@ -1,0 +1,189 @@
+:root {
+    --theme: 255, 54, 110;
+}
+
+html {
+    height: 100%;
+    font-size: 16px;
+    font-family: 'Varela Round', sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+}
+
+p {
+    margin: 0;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.config {
+    height: 100%;
+    width: 400px;
+    position: absolute;
+    left: -400px;
+    transition: 0.5s;
+    background-color: white;
+    z-index: 1;
+}
+
+.config:focus-within {
+    left: 0px;
+    box-shadow: 5px 0 10px #e5e5e5;
+}
+
+.config:focus-within .config__open-txt {
+    left: 0;
+}
+
+.config__open {
+    border-radius: 100%;
+    border: unset;
+    background-color: white;
+    font-family: unset;
+    padding: 10px;
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    top: calc(50% - 1.25rem);
+    right: -3rem;
+    box-shadow: 0 0 10px #e5e5e5;
+    outline: none;
+    cursor: pointer;
+}
+
+.config__open-txt {
+    font-family: inherit;
+    font-size: 2.5rem;
+    position: relative;
+    left: 10px;
+    transition: 0.5s;
+    opacity: 1;
+    color: rgba(var(--theme));
+    text-shadow: 0 0 5px rgb(var(--theme), 0.75);
+}
+
+.config__menu {
+    height: 100%;
+    width: 100%;
+}
+
+.config__title {
+    font-size: 32px;
+}
+
+.config__title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+#red:checked ~ .calc {
+    --theme: 255, 54, 110;
+}
+
+#blue:checked ~ .calc {
+    --theme: 0, 0, 255;
+}
+
+.calc {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-gap: 0.8rem;
+
+    background-color: #fafafa;
+    box-shadow: 0 0 20px -5px #cccccc;
+    border-radius: 5px;
+
+    padding: 15px;
+
+    
+}
+
+.calc__display {
+    grid-column: span 4;
+    grid-row: span 2;
+
+    background-color: rgba(0, 0, 0, 0.015);
+    border-radius: inherit;
+
+    padding: 15px;
+    
+}
+
+.calc__input {
+    height: 30%;
+    text-overflow: ellipsis;
+    
+    
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    letter-spacing: 2px;
+    width: 100%;
+}
+
+.calc__output {
+    height: 70%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 40px;
+}
+
+.calc__btn {
+    height: 5rem;
+    width: 5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: unset;
+    border: unset;
+    border-radius: inherit;
+    outline: none;
+    font-family: unset;
+
+    cursor: pointer;
+
+    transition: 0.15s ease-in-out;
+}
+
+.calc__btn:hover {
+    background-color: rgba(0, 0, 0, 0.025);
+}
+
+.calc__txt {
+    font-family: inherit;
+    font-size: 1.6rem;
+    user-select: none;
+    transition: 0.25s;
+}
+
+.calc__btn-op .calc__txt {
+    color: rgb(var(--theme));
+    text-shadow: 0 0 5px rgb(var(--theme), 0.75);
+}
+
+.calc__btn-op:hover {
+    background-color: rgba(var(--theme), 0.25);
+}
+
+.calc__btn:hover .calc__txt {
+    transform:scale(1.25);
+}
+
+.calc__btn:active .calc__txt {
+    transform: unset;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Calculator</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="config">
+            <button class="config__open">
+                <p class="config__open-txt">></p>
+            </button>
+            <div class="config__menu">
+                <div class="config__title-container">
+                    <p class="config__title">Configuration</p>
+                </div>
+                <div class="config__color-select">
+                    <input type="radio" name="color" class="config__color" value="red" id="red" onclick="updateTheme(this)" checked="true">
+                    <label>Raspberry</label>
+                    <input type="radio" name="color" class="config__color" value="blue" id="blue" onclick="updateTheme(this)">
+                    <label>Sky Blue</label>
+                    <input type="radio" name="color" class="config__color" value="high-contrast" id="contrast">
+                    <label>High Contrast</label>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="calc">
+                <div class="calc__display">
+                    <div class="calc__input">
+                    </div>
+                    <div class="calc__output">
+    
+                    </div>
+                </div>
+                <button class="calc__btn calc__btn-op" onclick="clearCalc()">
+                    <p class="calc__txt">C</p>
+                </button>
+                <button class="calc__btn calc__btn-op" onclick="insert('(')">
+                    <p class="calc__txt">(</p>
+                </button>
+                <button class="calc__btn calc__btn-op" onclick="insert(')')">
+                    <p class="calc__txt">)</p>
+                </button>
+                <button class="calc__btn calc__btn-op" onclick="insert('/')">
+                    <p class="calc__txt">÷</p>
+                </button>
+                <button class="calc__btn" onclick="insert('7')">
+                    <p class="calc__txt">7</p>
+                </button>
+                <button class="calc__btn" onclick="insert('8')">
+                    <p class="calc__txt">8</p>
+                </button>
+                <button class="calc__btn" onclick="insert('9')">
+                    <p class="calc__txt">9</p>
+                </button>
+                <button class="calc__btn calc__btn-op" onclick="insert('*')">
+                    <p class="calc__txt">×</p>
+                </button>
+                <button class="calc__btn" onclick="insert('4')">
+                    <p class="calc__txt">4</p>
+                </button>
+                <button class="calc__btn" onclick="insert('5')">
+                    <p class="calc__txt">5</p>
+                </button>
+                <button class="calc__btn" onclick="insert('6')">
+                    <p class="calc__txt">6</p>
+                </button>
+                <button class="calc__btn calc__btn-op" onclick="insert('-')">
+                    <p class="calc__txt">−</p>
+                </button>
+                <button class="calc__btn" onclick="insert('1')">
+                    <p class="calc__txt">1</p>
+                </button>
+                <button class="calc__btn" onclick="insert('2')">
+                    <p class="calc__txt">2</p>
+                </button>
+                <button class="calc__btn" onclick="insert('3')">
+                    <p class="calc__txt">3</p>
+                </button>
+                <button class="calc__btn calc__btn-op" onclick="insert('+')"> 
+                    <p class="calc__txt">+</p>
+                </button>
+                <button class="calc__btn" onclick="insert('0')">
+                    <p class="calc__txt">0</p>
+                </button>
+                <button class="calc__btn" onclick="insert('.')">
+                    <p class="calc__txt">•</p>
+                </button>
+                <button class="calc__btn calc__btn-op" onclick="del()">
+                    <p class="calc__txt">DEL</p>
+                </button>
+                <button class="calc__btn calc__btn-op" onclick="calculate()">
+                    <p class="calc__txt">=</p>
+                </button>
+            </div>
+        </div>
+        
+        <script src="script.js" async defer></script>
+    </body>
+</html>
