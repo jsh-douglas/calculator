@@ -9,21 +9,34 @@
         <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     </head>
     <body>
+        <input class="config-toggle" id="config-toggle" type="checkbox">
+        <label class="config-toggle-label" for="config-toggle" onclick>
+            <p class="config-toggle-label-txt">></p>
+        </label>
         <div class="config">
-            <button class="config__open">
-                <p class="config__open-txt">></p>
-            </button>
             <div class="config__menu">
                 <div class="config__title-container">
                     <p class="config__title">Configuration</p>
                 </div>
                 <div class="config__color-select">
-                    <input type="radio" name="color" class="config__color" value="red" id="red" onclick="updateTheme(this)" checked="true">
-                    <label>Raspberry</label>
-                    <input type="radio" name="color" class="config__color" value="blue" id="blue" onclick="updateTheme(this)">
-                    <label>Sky Blue</label>
-                    <input type="radio" name="color" class="config__color" value="high-contrast" id="contrast">
-                    <label>High Contrast</label>
+                    <div class="config__subtitle-container">
+                        <p class="config__subtitle">Theme</p>
+                    </div>
+                    <input type="radio" name="theme" class="config__color" value="light" id="light" onclick="updateTheme(this)" checked="true">
+                    <label for="light" class="radio-label">Light</label>
+                    <br>
+                    <input type="radio" name="theme" class="config__color" value="dark" id="dark" onclick="updateTheme(this)">
+                    <label for="dark" class="radio-label">Dark</label>
+                </div>
+                <div class="config__color-select">
+                    <div class="config__subtitle-container">
+                        <p class="config__subtitle">Accent Colour</p>
+                    </div>
+                    <input type="radio" name="accent" class="config__color" value="red" id="red" onclick="updateAccent(this)" checked="true">
+                    <label for="red" class="radio-label">Raspberry</label>
+                    <br>
+                    <input type="radio" name="accent" class="config__color" value="blue" id="blue" onclick="updateAccent(this)">
+                    <label for="blue" class="radio-label">Sky Blue</label>
                 </div>
             </div>
         </div>

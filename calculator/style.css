@@ -1,16 +1,23 @@
 :root {
-    --theme: 255, 54, 110;
+    --accent: 255, 54, 110;
+    --theme: 255, 255, 255;
+    --text: 0, 0, 0;
+    --hover: 0, 0, 0, 0.025;
+    --shadow: 225, 225, 225;
 }
 
 html {
     height: 100%;
     font-size: 16px;
     font-family: 'Varela Round', sans-serif;
+    
 }
 
 body {
     margin: 0;
     height: 100%;
+    background-color: rgb(var(--theme));
+    transition: 0.5s;
 }
 
 p {
@@ -27,48 +34,75 @@ p {
 
 .config {
     height: 100%;
-    width: 400px;
+    width: 300px;
     position: absolute;
-    left: -400px;
+    left: -300px;
     transition: 0.5s;
-    background-color: white;
+    background-color: rgb(var(--theme));;
     z-index: 1;
-}
-
-.config:focus-within {
-    left: 0px;
-    box-shadow: 5px 0 10px #e5e5e5;
+    padding: 25px;
+    box-sizing: border-box;
+    color: inherit;
 }
 
 .config:focus-within .config__open-txt {
     left: 0;
 }
 
-.config__open {
-    border-radius: 100%;
-    border: unset;
-    background-color: white;
-    font-family: unset;
-    padding: 10px;
-    width: 5rem;
-    height: 5rem;
-    position: absolute;
-    top: calc(50% - 1.25rem);
-    right: -3rem;
-    box-shadow: 0 0 10px #e5e5e5;
-    outline: none;
-    cursor: pointer;
+.config-toggle {
+    display: none;
 }
 
-.config__open-txt {
+.config-toggle:checked ~ .config-toggle-label{
+    left: calc(300px - 2.5rem);
+}
+
+.config-toggle:checked ~ .config-toggle-label .config-toggle-label-txt {
+    left: 0;
+    transform: scale(-1, 1);
+}
+
+.config-toggle:checked ~ .config{
+    left: 0;
+    box-shadow: 5px 0 10px rgb(var(--shadow));
+}
+
+.config-toggle-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 5rem;
+    height: 5rem;
+
+    position: absolute;
+    top: calc(50% - 1.25rem);
+    left: -2rem;
+
+    background-color: rgb(var(--theme));;
+    box-shadow: 0 0 10px rgb(var(--shadow));
+    border-radius: 100%;
+    border: unset;
+    outline: none;
+    cursor: pointer;
+    z-index: 2;
+
+    transition: 0.5s;
+}
+
+.config-toggle-label-txt {
     font-family: inherit;
     font-size: 2.5rem;
     position: relative;
     left: 10px;
     transition: 0.5s;
-    opacity: 1;
-    color: rgba(var(--theme));
-    text-shadow: 0 0 5px rgb(var(--theme), 0.75);
+    color: rgb(var(--accent));
+    text-shadow: 0 0 5px rgb(var(--accent), 0.75);
+    
+}
+
+.radio-label {
+    color: rgb(var(--text));
 }
 
 .config__menu {
@@ -78,21 +112,20 @@ p {
 
 .config__title {
     font-size: 32px;
+    margin: 20px 0;
+    color: rgb(var(--text));
 }
 
 .config__title-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px;
 }
 
-#red:checked ~ .calc {
-    --theme: 255, 54, 110;
-}
-
-#blue:checked ~ .calc {
-    --theme: 0, 0, 255;
+.config__subtitle {
+    font-size: 20px;
+    margin: 30px 0 10px 0;
+    color: rgb(var(--text));
 }
 
 .calc {
@@ -101,30 +134,30 @@ p {
     grid-template-rows: repeat(7, 1fr);
     grid-gap: 0.8rem;
 
-    background-color: #fafafa;
-    box-shadow: 0 0 20px -5px #cccccc;
+    box-shadow: 0 0 20px -5px rgb(var(--shadow));
     border-radius: 5px;
 
     padding: 15px;
-
-    
+    background-color: rgb(var(--theme));
+    transition: 0.5s;
 }
 
 .calc__display {
     grid-column: span 4;
     grid-row: span 2;
 
-    background-color: rgba(0, 0, 0, 0.015);
+    background-color: rgba(var(--hover));
     border-radius: inherit;
 
     padding: 15px;
+
+    color: rgb(var(--text));
     
 }
 
 .calc__input {
     height: 30%;
     text-overflow: ellipsis;
-    
     
     box-sizing: border-box;
     display: flex;
@@ -154,6 +187,7 @@ p {
     border-radius: inherit;
     outline: none;
     font-family: unset;
+    color: rgb(var(--text));
 
     cursor: pointer;
 
@@ -161,7 +195,7 @@ p {
 }
 
 .calc__btn:hover {
-    background-color: rgba(0, 0, 0, 0.025);
+    background-color: rgba(var(--hover));
 }
 
 .calc__txt {
@@ -172,12 +206,12 @@ p {
 }
 
 .calc__btn-op .calc__txt {
-    color: rgb(var(--theme));
-    text-shadow: 0 0 5px rgb(var(--theme), 0.75);
+    color: rgb(var(--accent));
+    text-shadow: 0 0 5px rgb(var(--accent), 0.75);
 }
 
 .calc__btn-op:hover {
-    background-color: rgba(var(--theme), 0.25);
+    background-color: rgba(var(--accent), 0.25);
 }
 
 .calc__btn:hover .calc__txt {
